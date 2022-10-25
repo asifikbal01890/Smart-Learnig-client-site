@@ -1,0 +1,16 @@
+.bg-orange{
+    background-color: rgb(93, 55, 208);
+}
+.pl-50{
+    padding-left: 5%;
+}
+.me-50{
+    margin-right: 5%;
+}
+.w-10{
+    width: 45px;
+    height: 45px;
+}
+.w{
+    width: 10px;
+}
