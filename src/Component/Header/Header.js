@@ -1,9 +1,11 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import './Header.css';
 
 const Header = () => {
-   
+   const {user, logOut} = useContext(AuthContext)
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-orange">
@@ -21,9 +23,11 @@ const Header = () => {
                         </div>
                     </div>
                 </Link>
-                <button className='btn btn-light fw-bolder fs-5 d-lg-none'>Login</button>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 w-50 m-auto">
+                        <li className="nav-item">
+                        <Link className="nav-link active text-white fs-5" aria-current="page" to={'/Home'}>Home</Link>
+                        </li>
                         <li className="nav-item">
                         <Link className="nav-link active text-white fs-5" aria-current="page" to={'/Courses'}>Courses</Link>
                         </li>
@@ -36,13 +40,20 @@ const Header = () => {
                         <li className="nav-item">
                         <Link className="nav-link text-white fs-5" to={'/Blog'}>Blog</Link>
                         </li>
-                    <button type="button" className="btn btn-outline-light fw-bolder w-25 mx-auto fs-5">Dark</button>
+                    <button type="button" className="btn btn-outline-light fw-bolder mx-auto fs-5">Dark</button>
                     </ul>
-                    <Link to={"/Register"}><button type="button" className="btn btn-outline-light fw-bolder fs-5">Register</button></Link>
+                    {
+                        user?.uid ?
+                        <button onClick={logOut} className="btn btn-light me-50 fw-bolder fs-5 mx-3">Log Out</button>
+                        :
+                        <div className="d-flex flex-column d-lg-block">
+                        <Link to={"/Register"}><button type="button" className="btn btn-outline-light fw-bolder fs-5">Register</button></Link>
+                        <Link to={"/Login"}><button className='btn btn-light me-50 fw-bolder fs-5 mx-3 mt-2 mt-lg-0'>Login</button></Link>
+                        </div>
+                    }
+                
                    
                 </div>
-                <Link to={"/Login"}><button className='btn btn-light me-50 fw-bolder fs-5 mx-3 d-none d-lg-block'>Login</button></Link>
-
               </div>
             </nav>
         </div>

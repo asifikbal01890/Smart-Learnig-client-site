@@ -51,25 +51,25 @@ const Register = () => {
                 <div className="row mb-3">
 
                     <div className="col-sm-10  w-100">
-                    <input type="Name" className="form-control fs-4" name="name" placeholder='Full name'/>
+                    <input type="Name" className="form-control fs-5" name="name" placeholder='Full name'/>
                     </div>
                 </div>
                 <div className="row mb-3">
 
                     <div className="col-sm-10 w-100">
-                    <input type="PhotoURL" className="form-control fs-4" name="PhotoURL" placeholder='Photo URL'/>
+                    <input type="PhotoURL" className="form-control fs-5" name="PhotoURL" placeholder='Photo URL'/>
                     </div>
                 </div>
                 <div className="row mb-3">
 
                     <div className="col-sm-10 w-100">
-                    <input type="email" className="form-control fs-4" name="email" placeholder='Email address' required/>
+                    <input type="email" className="form-control fs-5" name="email" placeholder='Email address' required/>
                     </div>
                 </div>
                 <div className="row mb-3 ">
 
                     <div className="col-sm-10 w-100">
-                    <input type="Password" className="form-control fs-4" name="Password" placeholder='Password' required/>
+                    <input type="Password" className="form-control fs-5" name="Password" placeholder='Password' required/>
                     </div>
                 </div>
                 <button type="submit" className="btn-pink text-white fs-4 fw-semibold px-5 pb-2 rounded-5">Register</button>

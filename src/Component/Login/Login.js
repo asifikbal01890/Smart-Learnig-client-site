@@ -19,6 +19,7 @@ const Login = () => {
         .then (result => {
             const user = result.user;
             console.log(user);
+            form.reset();
         })
         .catch(error => console.error(error));
     }
@@ -32,12 +33,12 @@ const Login = () => {
             <form onSubmit={handleSubmit} className='pt-4'>
                 <div className="row mb-3 mt">
                     <div className="col-sm-10 w-100">
-                    <input type="email" className="form-control fs-4" name="email" placeholder='Email address' required/>
+                    <input type="email" className="form-control fs-5" name="email" placeholder='Email address' required/>
                     </div>
                 </div>
                 <div className="row mb-3 ">
                     <div className="col-sm-10 w-100">
-                    <input type="password" className="form-control fs-4" name="password" placeholder='Password' required/>
+                    <input type="password" className="form-control fs-5" name="password" placeholder='Password' required/>
                     </div>
                 </div>
                 <button type="submit" className="btn-pink text-white fs-4 fw-semibold px-5 pb-2 rounded-5">Login</button>
