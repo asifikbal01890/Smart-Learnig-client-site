@@ -1,15 +1,27 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css'
 
 const Login = () => {
+    const {signIn} = useContext();
+
+    const handleSignIn = event =>{
+        event.preventDefault();
+
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.vale;
+        console.log(email, password);
+    }
+
     return (
         <div className='my-5'>
             <div className='w-150 mx-auto bg-light shadow p-3 mb-5 bg-body rounded'>
                 <div>
                     <h2>Please Login</h2>
                 </div>
-            <form className='pt-4'>
+            <form onSubmit={handleSignIn} className='pt-4'>
                 <div className="row mb-3 mt">
                     <div className="col-sm-10 w-100">
                     <input type="email" className="form-control fs-4 " id="inputEmail3" placeholder="Email address"/>
