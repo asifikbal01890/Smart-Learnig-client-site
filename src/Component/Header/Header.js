@@ -35,11 +35,13 @@ const Header = () => {
                         <li className="nav-item">
                         <Link className="nav-link text-white fs-5" to={'/Blog'}>Blog</Link>
                         </li>
+                    <button type="button" className="btn btn-outline-light fw-bolder w-25 mx-auto fs-5">Dark</button>
                     </ul>
-                    <button type="button" class="btn btn-outline-light fw-bolder fs-5">Dark</button>
+                    <button type="button" className="btn btn-outline-light fw-bolder fs-5"><Link to={"/Register"}>Register</Link></button>
                    
                 </div>
                 <button className='btn btn-light me-50 fw-bolder fs-5 ms-3 d-none d-lg-block'>Login</button>
+
               </div>
             </nav>
         </div>
