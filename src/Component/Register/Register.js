@@ -4,30 +4,30 @@ import { Link } from 'react-router-dom';
 const Register = () => {
     return (
         <div>
-            <div className='w-50 mx-auto mt-5'>
+            <div className='w-150 mx-auto bg-light shadow p-3 mb-5 bg-body rounded mt-5'>
             <form>
                 <div className="row mb-3">
-                    <label for="inputEmail3" className="col-sm-2 col-form-label fw-semibold fs-4">Full Name</label>
-                    <div className="col-sm-10">
-                    <input type="Name" className="form-control fs-4" id="inputEmail3"/>
+
+                    <div className="col-sm-10  w-100">
+                    <input type="Name" className="form-control fs-4" id="inputEmail3" placeholder='Full name'/>
                     </div>
                 </div>
                 <div className="row mb-3">
-                    <label for="inputEmail3" className="col-sm-2 col-form-label fw-semibold fs-4">Photo Url</label>
-                    <div className="col-sm-10">
-                    <input type="photoUrl" className="form-control fs-4" id="inputEmail3"/>
+
+                    <div className="col-sm-10 w-100">
+                    <input type="photoUrl" className="form-control fs-4" id="inputEmail3" placeholder='Photo URL'/>
                     </div>
                 </div>
                 <div className="row mb-3">
-                    <label for="inputEmail3" className="col-sm-2 col-form-label fw-semibold fs-4">Email</label>
-                    <div className="col-sm-10">
-                    <input type="email" className="form-control fs-4" id="inputEmail3"/>
+
+                    <div className="col-sm-10 w-100">
+                    <input type="email" className="form-control fs-4" id="inputEmail3" placeholder='Email address'/>
                     </div>
                 </div>
                 <div className="row mb-3 ">
-                    <label for="inputPassword3" className="col-sm-2 col-form-label fw-semibold fs-4">Password</label>
-                    <div className="col-sm-10">
-                    <input type="password" className="form-control fs-4" id="inputPassword3"/>
+
+                    <div className="col-sm-10 w-100">
+                    <input type="password" className="form-control fs-4" id="inputPassword3" placeholder='Password'/>
                     </div>
                 </div>
                 <button type="submit" className="btn-pink text-white fs-4 fw-semibold px-5 pb-2 rounded-5">Login</button>
