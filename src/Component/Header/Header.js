@@ -20,7 +20,7 @@ const Header = () => {
                         </div>
                     </div>
                 </Link>
-                <button className='btn btn-light me-50 fw-bolder fs-5 ms-3 d-lg-none'>Login</button>
+                <button className='btn btn-light fw-bolder fs-5 d-lg-none'>Login</button>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 w-50 m-auto">
                         <li className="nav-item">
@@ -37,10 +37,10 @@ const Header = () => {
                         </li>
                     <button type="button" className="btn btn-outline-light fw-bolder w-25 mx-auto fs-5">Dark</button>
                     </ul>
-                    <button type="button" className="btn btn-outline-light fw-bolder fs-5"><Link to={"/Register"}>Register</Link></button>
+                    <Link to={"/Register"}><button type="button" className="btn btn-outline-light fw-bolder fs-5">Register</button></Link>
                    
                 </div>
-                <button className='btn btn-light me-50 fw-bolder fs-5 ms-3 d-none d-lg-block'>Login</button>
+                <Link to={"/Login"}><button className='btn btn-light me-50 fw-bolder fs-5 mx-3 d-none d-lg-block'>Login</button></Link>
 
               </div>
             </nav>
