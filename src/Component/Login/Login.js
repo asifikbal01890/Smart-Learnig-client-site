@@ -1,18 +1,26 @@
 import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import './Login.css'
 
 const Login = () => {
-    const {signIn} = useContext();
+    const {singIn} = useContext(AuthContext)
 
-    const handleSignIn = event =>{
+    const handleSubmit = event => {
         event.preventDefault();
 
         const form = event.target;
         const email = form.email.value;
-        const password = form.password.vale;
+        const password = form.password.value;
         console.log(email, password);
+
+        singIn(email, password)
+        .then (result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error => console.error(error));
     }
 
     return (
@@ -21,15 +29,15 @@ const Login = () => {
                 <div>
                     <h2>Please Login</h2>
                 </div>
-            <form onSubmit={handleSignIn} className='pt-4'>
+            <form onSubmit={handleSubmit} className='pt-4'>
                 <div className="row mb-3 mt">
                     <div className="col-sm-10 w-100">
-                    <input type="email" className="form-control fs-4 " id="inputEmail3" placeholder="Email address"/>
+                    <input type="email" className="form-control fs-4" name="email" placeholder='Email address' required/>
                     </div>
                 </div>
                 <div className="row mb-3 ">
                     <div className="col-sm-10 w-100">
-                    <input type="password" className="form-control fs-4" id="inputPassword3" placeholder="Password"/>
+                    <input type="password" className="form-control fs-4" name="password" placeholder='Password' required/>
                     </div>
                 </div>
                 <button type="submit" className="btn-pink text-white fs-4 fw-semibold px-5 pb-2 rounded-5">Login</button>
