@@ -5,13 +5,13 @@ import Blog from './Component/Blog/Blog';
 import Course from './Component/Course/Course';
 import CourseDetails from './Component/CourseDetails/CourseDetails';
 import Courses from './Component/Courses/Courses';
-import Faq from './Component/Faq/Faq';
 import Home from './Component/Home/Home';
 import Login from './Component/Login/Login';
 import Premium from './Component/Premium/Premium';
 import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
 import Register from './Component/Register/Register';
 import Main from './Layout/Main/Main';
+import PageNotFound from './Component/PageNotFound/PageNotFound';
 
 function App() {
   const router = createBrowserRouter([
@@ -40,10 +40,6 @@ function App() {
           ]
         },
         {
-          path:"/FAQ",
-          element: <Faq></Faq>
-        },
-        {
           path:"/Blog",
           element: <Blog></Blog>
         },
@@ -61,6 +57,10 @@ function App() {
           element: <PrivateRoute><Premium></Premium></PrivateRoute>
         },
       ]
+    },
+    {
+      path: "*",
+      element: <PageNotFound></PageNotFound>
     }
   ])
   return (
