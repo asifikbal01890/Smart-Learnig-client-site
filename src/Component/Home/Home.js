@@ -4,7 +4,7 @@ const Home = () => {
     return (
         <div>
             <div>
-                <img src="https://wallpaperaccess.com/full/5673721.jpg" alt="" />
+                <img className='w-100 m-auto' src="https://wallpaperaccess.com/full/5673721.jpg" alt="" />
             </div>
             <div className='pt-5'>
                 <h1 className='fw-bolder text-color'>Smart way to Learning</h1>
