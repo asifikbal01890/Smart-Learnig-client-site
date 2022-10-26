@@ -12,7 +12,7 @@ const CourseDetails = () => {
                 <div class="card-body">
                     <h5 class="card-title fs-2 fw-bold text-color">{course.name}</h5>
                     <p class="card-text">{course.details}</p>
-                    <Link to="/Premium"><button className="btn-pink text-white fs-4 fw-semibold px-5 pb-2 rounded-5">Go To Premium</button></Link>
+                    <Link to={`/Courses/${course._id}/Premium`}><button className="btn-pink text-white fs-4 fw-semibold px-5 pb-2 rounded-5">Get Premium Access</button></Link>
                 </div>
             </div>
         </div>

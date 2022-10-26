@@ -56,7 +56,8 @@ function App() {
           element: <Register></Register>
         },
         {
-          path:"/Premium",
+          path:"/Courses/:id/Premium",
+          loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`),
           element: <PrivateRoute><Premium></Premium></PrivateRoute>
         },
       ]

@@ -5,11 +5,18 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import ReactTooltip from 'react-tooltip';
 import './Header.css';
+import { useState } from 'react';
 
 const Header = () => {
    const {user, logOut} = useContext(AuthContext)
 
-   
+   const [btnState, setBtnState] = useState(false);
+
+   const handleBtnClick = () => { 
+        setBtnState(btnState => !btnState);
+   }
+
+   const btnToggle = btnState ? 'text-light' : 'text-dark';
 
     return (
         <div>
@@ -28,6 +35,17 @@ const Header = () => {
                         </div>
                     </div>
                 </Link>
+                {
+                    user?.uid ?
+                    <>
+                        <p data-tip={user.displayName} className="d-lg-none"><img className='rounded-circle w-10' src={user.photoURL} alt=""/></p>
+                        <ReactTooltip />
+                    </>
+                    :
+                    <>
+                    <button className='btn btn-light rounded-circle w-10'><FaUser></FaUser></button>
+                    </>
+                }
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 w-50 m-auto">
                         <li className="nav-item">
@@ -58,13 +76,13 @@ const Header = () => {
                           </>
                         }
                         
-                    <button type="button" className="btn btn-outline-light fw-bolder mx-auto fs-5 rounded-circle"><FaMoon></FaMoon></button>
+                    <p type="button" onClick={handleBtnClick} className={`${btnToggle} fs-3 ps-2`}><FaMoon></FaMoon></p>
                     </ul>
                 </div>
                 {
                     user?.uid ?
                     <>
-                        <p data-tip={user.displayName}><img className='rounded-circle w-10' src={user.photoURL} alt=""/></p>
+                        <p data-tip={user.displayName} className="d-none d-lg-block"><img className='rounded-circle w-10' src={user.photoURL} alt=""/></p>
                         <ReactTooltip />
                     </>
                     :
