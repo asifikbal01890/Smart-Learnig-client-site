@@ -1,14 +1,20 @@
 import React from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import './Login.css';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { GoogleAuthProvider } from 'firebase/auth';
+import { useState } from 'react';
 
 
 const Login = () => {
-    const {signIn, googleSingIn} = useContext(AuthContext)
+    const [error, setError] = useState('');
+    const {signIn, googleSingIn} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -16,16 +22,17 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
 
         signIn(email, password)
         .then(result => {
             const user = result.user;
             console.log(user);
             form.reset();
+            setError('');
+            navigate(from, {replace: true});
            
         })
-        .catch(error => console.error(error));
+        .catch(e => setError(e.message));
     }
 
     const googleProvider = new GoogleAuthProvider()
@@ -36,7 +43,7 @@ const Login = () => {
             const user = result.user;
             console.log(user);
         })
-        .catch(error => console.error(error))
+        .catch(e => setError(e.message))
     }
 
     return (
@@ -58,6 +65,7 @@ const Login = () => {
                 </div>
                 <button type="submit" className="btn-pink text-white fs-4 fw-semibold px-5 pb-2 rounded-5">Login</button>
                 </form>
+                <span className='text-danger'>{error}</span>
                 <div>
                     or
                 </div>

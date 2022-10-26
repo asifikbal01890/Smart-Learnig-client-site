@@ -31,7 +31,7 @@ const Header = () => {
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 w-50 m-auto">
                         <li className="nav-item">
-                        <Link className="nav-link active text-white fs-5" aria-current="page" to={'/Home'}>Home</Link>
+                        <Link className="nav-link active text-white fs-5" aria-current="page" to={'/'}>Home</Link>
                         </li>
                         <li className="nav-item">
                         <Link className="nav-link active text-white fs-5" aria-current="page" to={'/Courses'}>Courses</Link>

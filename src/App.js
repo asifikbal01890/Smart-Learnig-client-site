@@ -20,7 +20,7 @@ function App() {
       element:<Main></Main>,
       children:[
         {
-          path:"/Home",
+          path:"/",
           element: <Home></Home>
         },
         {
