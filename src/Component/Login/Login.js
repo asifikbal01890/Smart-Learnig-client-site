@@ -2,10 +2,13 @@ import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
-import './Login.css'
+import './Login.css';
+import { FaGithub, FaGoogle } from "react-icons/fa";
+import { GoogleAuthProvider } from 'firebase/auth';
+
 
 const Login = () => {
-    const {singIn} = useContext(AuthContext)
+    const {signIn, googleSingIn} = useContext(AuthContext)
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -15,13 +18,25 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
 
-        singIn(email, password)
-        .then (result => {
+        signIn(email, password)
+        .then(result => {
             const user = result.user;
             console.log(user);
             form.reset();
+           
         })
         .catch(error => console.error(error));
+    }
+
+    const googleProvider = new GoogleAuthProvider()
+
+    const handleGoogleSingIn = () => {
+        googleSingIn(googleProvider)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error => console.error(error))
     }
 
     return (
@@ -47,6 +62,15 @@ const Login = () => {
                     or
                 </div>
                 <Link className='p-4' to={'/Register'}>Create New Account</Link>
+                <div className='d-block pt-3'>
+                    <div>
+                        <button onClick={handleGoogleSingIn} type="button" className="btn btn-outline-success w-50"><FaGoogle></FaGoogle> Sing In by Google</button>
+                    </div>
+                    <div>
+                        <button type="button" className="btn btn-outline-secondary mt-3 w-50"><FaGithub></FaGithub>  Sing In by Github</button>
+                    </div>
+                </div>
+
         </div>
         </div>
     );

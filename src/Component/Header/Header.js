@@ -1,11 +1,16 @@
 import React from 'react';
 import { useContext } from 'react';
+import { FaMoon, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import ReactTooltip from 'react-tooltip';
 import './Header.css';
 
 const Header = () => {
    const {user, logOut} = useContext(AuthContext)
+
+   
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-orange">
@@ -37,23 +42,36 @@ const Header = () => {
                         <li className="nav-item">
                         <Link className="nav-link text-white fs-5" to={'/FAQ'}>FAQ</Link>
                         </li>
-                        <li className="nav-item">
-                        <Link className="nav-link text-white fs-5" to={'/Blog'}>Blog</Link>
-                        </li>
-                    <button type="button" className="btn btn-outline-light fw-bolder mx-auto fs-5">Dark</button>
+                        {
+                          user?.uid ?
+                          <li className="nav-item">
+                          <Link onClick={logOut} className="nav-link text-white fs-5" >Logout</Link>
+                          </li>
+                          :
+                          <>
+                          <li className="nav-item">
+                          <Link className="nav-link text-white fs-5" to={'/Register'}>Register</Link>
+                          </li>
+                          <li className="nav-item">
+                          <Link className="nav-link text-white fs-5" to={'/Login'}>Login</Link>
+                          </li>
+                          </>
+                        }
+                        
+                    <button type="button" className="btn btn-outline-light fw-bolder mx-auto fs-5 rounded-circle"><FaMoon></FaMoon></button>
                     </ul>
-                    {
-                        user?.uid ?
-                        <button onClick={logOut} className="btn btn-light me-50 fw-bolder fs-5 mx-3">Log Out</button>
-                        :
-                        <div className="d-flex flex-column d-lg-block">
-                        <Link to={"/Register"}><button type="button" className="btn btn-outline-light fw-bolder fs-5">Register</button></Link>
-                        <Link to={"/Login"}><button className='btn btn-light me-50 fw-bolder fs-5 mx-3 mt-2 mt-lg-0'>Login</button></Link>
-                        </div>
-                    }
-                
-                   
                 </div>
+                {
+                    user?.uid ?
+                    <>
+                        <p data-tip={user.displayName}><img className='rounded-circle w-10' src={user.photoURL} alt=""/></p>
+                        <ReactTooltip />
+                    </>
+                    :
+                    <>
+                    <button className='btn btn-light rounded-circle w-10'><FaUser></FaUser></button>
+                    </>
+                }
               </div>
             </nav>
         </div>
