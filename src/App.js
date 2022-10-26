@@ -8,6 +8,8 @@ import Courses from './Component/Courses/Courses';
 import Faq from './Component/Faq/Faq';
 import Home from './Component/Home/Home';
 import Login from './Component/Login/Login';
+import Premium from './Component/Premium/Premium';
+import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
 import Register from './Component/Register/Register';
 import Main from './Layout/Main/Main';
 
@@ -52,6 +54,10 @@ function App() {
         {
           path:"/Register",
           element: <Register></Register>
+        },
+        {
+          path:"/Premium",
+          element: <PrivateRoute><Premium></Premium></PrivateRoute>
         },
       ]
     }
