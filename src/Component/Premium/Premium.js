@@ -4,7 +4,6 @@ import { useLoaderData } from 'react-router-dom';
 const Premium = () => {
 
     const course = useLoaderData();
-    console.log(course);
 
     return (
         <div className='pt-5'>
