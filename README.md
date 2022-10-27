@@ -1,6 +1,6 @@
 # **Smart Learning**
 ## **Live Site Link**
-click here to see live website :  
+click here to see live website : https://smart-learning-project.web.app 
 
 ### **The different Features and Functionality of this website :-**
 - Have a awesome color combination in this site.
