@@ -20,7 +20,7 @@ const Register = () => {
         createUser(email, password)
          .then(result=>{
             const user =result.user;
-            console.log(user);
+            // console.log(user);
             setError('');
             form.reset();
             handleUpdateUserProfile(name, photoURL);
@@ -38,7 +38,9 @@ const Register = () => {
         }
         updateUserProfile(profile)
         .then(() => {})
-        .catch(error => console.error(error));
+        .catch(e => {
+            setError(e.message)
+        });
      }
 
     return (
@@ -74,6 +76,7 @@ const Register = () => {
                 </div>
                 <button type="submit" className="btn-pink text-white fs-4 fw-semibold px-5 pb-2 rounded-5">Register</button>
                 </form>
+                <span className='text-danger'>{error}</span>
                 <div>
                     or
                 </div>

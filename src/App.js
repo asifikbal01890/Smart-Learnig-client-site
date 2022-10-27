@@ -29,12 +29,12 @@ function App() {
           children:[
             {
               path:"/Courses",
-              loader: () => fetch('http://localhost:5000/course'),
+              loader: () => fetch('https://smart-learning-server-asifikbal01890.vercel.app/course'),
               element: <Course></Course>
             },
             {
               path:"/Courses/:id",
-              loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`),
+              loader: ({params}) => fetch(`https://smart-learning-server-asifikbal01890.vercel.app/course/${params.id}`),
               element: <CourseDetails></CourseDetails>
             },
           ]
@@ -53,7 +53,7 @@ function App() {
         },
         {
           path:"/Courses/:id/Premium",
-          loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`),
+          loader: ({params}) => fetch(`https://smart-learning-server-asifikbal01890.vercel.app/course/${params.id}`),
           element: <PrivateRoute><Premium></Premium></PrivateRoute>
         },
       ]

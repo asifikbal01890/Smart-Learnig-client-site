@@ -5,7 +5,7 @@ import './CourseCard.css'
 const CourseCard = ({displayCourse}) => {
     const {_id, name, details, image} = displayCourse;
     return (
-        <div className="col border-0">
+        <div className="col border-0 pt-3">
             <div className="card h-100">
                 <img src={image} className="m-2 border rounded-3" alt="..."/>
                     <div className="card-body">
